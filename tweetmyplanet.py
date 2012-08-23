@@ -97,8 +97,9 @@ print ">>> Tweeting new entries..."
 entriesToTweet.reverse()
 try:
     for entry in entriesToTweet:
-        print "### %s | %s" % (entry[0], entry[1])
-        twitter.update_status(entry[0] + " | " + entry[1])
+        tweet = entry[0] + " | " + entry[1]
+        print "### %s" % (tweet)
+        twitter.update_status(tweet)
         lastTweetedEntry = entry[0]
 except:
     # If any error occur in the update_status, continue to save
