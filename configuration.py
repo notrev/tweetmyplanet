@@ -15,5 +15,5 @@ class Configuration:
     twitterAccessToken = ""
     twitterAccessTokenSecret = ""
 
-    # Last-Tweeted-Entry filename. File tha will store the last tweeted entry
+    # Last-Tweeted-Entry filename. File that will store the last tweeted entry
     lastTweetedEntryFilename = "last-tweeted-entry"
