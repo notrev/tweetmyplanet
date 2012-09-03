@@ -29,7 +29,7 @@ from lib import feedparser
 from lib import urlshortener
 from configuration import Configuration as conf
 
-print "[" + time.strftime(time.strftime("%d/%m/%Y:%H:%M:%S")) + "]"
+print "[" + time.strftime("%d/%m/%Y:%H:%M:%S") + "]"
 
 # Getting the feed and parsing it
 print ">>> Getting the FEED and parsing entries..."
