@@ -98,16 +98,25 @@ entriesToTweet.reverse()
 try:
     for entry in entriesToTweet:
         tweet = entry[0] + " | " + entry[1]
-        print "### %s" % (tweet)
+        tweet = tweet.encode("utf-8")
+        print "### %s" % tweet
         twitter.update_status(tweet)
         lastTweetedEntry = entry[0]
-except:
-    # If any error occur in the update_status, continue to save
+except tweepy.TweepError, e:
+    # If an error related to tweepy occur, continue to save
     # the last tweeted entry in the last-tweeted-entry file
-    print ">>> Error when trying to tweet an entry."
-    pass
+    print "!!! Error when trying to tweet an entry."
+    e = e[0][0]
+    print "!!! TWEEPY ERROR %d: %s" % (e['code'], e['message'])
+    #pass
+except Exception, e:
+    # If any other error occur during the tweet, continue to save
+    # the last tweeted entry in the last-tweeted-entry file
+    print "!!! Unexpected error when trying to tweet an entry."
+    print "!!! ERROR: ", e
 
 # Writes the last tweeted entry to the last-tweeted-entry file
-with open(conf.lastTweetedEntryFilename, "w") as lastTweetedEntryFile:
-    print ">>> Writing the last tweeted entry to the file."
-    pickle.dump(lastTweetedEntry, lastTweetedEntryFile)
+if lastTweetedEntry:
+    with open(conf.lastTweetedEntryFilename, "w") as lastTweetedEntryFile:
+        print ">>> Writing the last tweeted entry to the file."
+        pickle.dump(lastTweetedEntry, lastTweetedEntryFile)
