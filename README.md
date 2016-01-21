@@ -1,39 +1,39 @@
-TweetMyPlanet
-===================
+# TweetMyPlanet #
 
-ABOUT:
--------------------
+## ABOUT: ##
+
 TweetMyPlanet is a python script that reads an RSS Feed and tweets
 it's entries in a twitter account.
 
-This script was intended to tweet Planeta Debian Brasil's[0] entries
-into @PlanetaDebianBr[1] account. As is done in @PlanetDebian[2].
+This script was intended to tweet [Planeta Debian Brasil](http://planeta.debianbrasil.org)'s
+entries into [@PlanetaDebianBr](http://twitter.com/planetadebianbr) account.
+As it is done in [@PlanetDebian](http://twitter.com/planetdebian).
 
-TweetMyPlanet uses Tweepy[3] and feedparser[4].
+TweetMyPlanet uses [Tweepy](https://github.com/tweepy/tweepy) and [feedparser](http://code.google.com/p/feedparser/).
 
-Developed by Éverton Arruda <root@earruda.eti.br>
+Developed by Éverton Arruda <root AT earruda.eti.br>
+
 WebSite: http://earruda.eti.br
-License: GNU/GPLv3
 
-USAGE
--------------------
-First of all, you'll need a twitter account with permissions given
-to TweetMyPlanet Application. There is still a page being developed
-to automate this step. Check out the website to stay informed.
+License: GNU/GPLv2
 
-You'll also need a Bit.ly account in order to shrten the URLs.
+## USAGE ##
 
-After getting these infos, you'll have to add them in the configuration.py
+You will need 4 informations in order for the plugin to be able to publish to
+Twitter: API Consumer Key, API Consumer Secret, OAuth Access Token, OAuth Access Token Secret.
+
+To get these informations, you will need to create an app in Twitter. To do so, you
+can follow the steps in this link:
+
+http://iag.me/socialmedia/how-to-create-a-twitter-app-in-8-easy-steps/
+
+You'll also need a Bit.ly account in order to shorten the URLs.
+
+After getting these infos, you'll have to add them in the `configuration.py`
 file together with the URL to the RSS Feed and run the script:
 
+```
 $ python tweetmyplanet.py
+```
 
 If you want it to run automatically, just add it in the crontab.
-
-LINKS
--------------------
-[0] http://planeta.debianbrasil.org
-[1] http://twitter.com/planetadebianbr
-[2] http://twitter.com/planetdebian
-[3] https://github.com/tweepy/tweepy
-[4] http://code.google.com/p/feedparser/
